@@ -1,0 +1,4 @@
+<h1><%= @works_item.title %></h1>
+  <h2><%=  @works_item.subtitle %></h2>
+  <p><%=  @works_item.body %></p>
+  <%= image_tag @works_item.main_image if !@works_item.main_image.nil? %>
