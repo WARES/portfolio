@@ -11,13 +11,18 @@ class WorksController < ApplicationController
 
 
   def destroy
+    @works_item.destroy
+    respond_to do |format|
+      format.html{ redirect_to works_url, notice: "Post was removed."}
+      format.json{ head :no_content}
+    end
   end
 
   def create
     @works_item = Work.new(work_params)
     respond_to do |format|
       if @works_item.save
-        format.html { redirect_to @work_item, notice: "Your portfolio item is created"}
+        format.html { redirect_to @works_item, notice: "Your portfolio item is created"}
       else
         format.html {render :new}
       end

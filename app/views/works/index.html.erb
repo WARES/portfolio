@@ -8,4 +8,6 @@
   <p><%= work.body %></p>
   <%= image_tag work.thumb_image unless work.thumb_image.nil? %>
     <%= link_to "Edit", edit_work_path(work.id) %>
+    <%= link_to "Show", work_path(work.id) %>
+    <%= link_to "Delete", work_path(work), method: :delete, data: {confirm: "Are you sure?"} %>
 <% end %>
