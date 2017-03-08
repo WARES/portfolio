@@ -26,7 +26,7 @@ class WorksController < ApplicationController
     @works_item = Work.new(work_params)
     respond_to do |format|
       if @works_item.save
-        format.html { redirect_to @works_item, notice: "Your portfolio item is created"}
+        format.html { redirect_to portfolio_show_path(@works_item.id), notice: "Your portfolio item is created"}
       else
         format.html {render :new}
       end
