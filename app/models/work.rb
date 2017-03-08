@@ -1,4 +1,5 @@
 class Work < ApplicationRecord
+  include Placeholder
   validates_presence_of :title, :subtitle, :body, :main_image, :thumb_image
 
   #Create a custom scope
@@ -12,7 +13,12 @@ class Work < ApplicationRecord
   after_initialize :set_defaults
 
   def set_defaults
-    self.main_image ||= "http://placehold.it/600x400"
-    self.thumb_image ||= "http://placehold.it/350x200"
+    self.main_image ||= Placeholder.image_generator(600, 400)
+    self.thumb_image ||= Placeholder.image_generator(350, 250)
+    ## Equal to do
+    ##if self.main_image == nil
+    ##  self.main_image = "http://placehold.it/350x200"
+    ##end
+
   end
 end
