@@ -2,7 +2,11 @@ class WorksController < ApplicationController
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
   def index
-    @works_item = Work.all
+    @works_item = Work.all # create a scope ->ruby_on_rails_work_items  #where(subtitle: "Angular JS")
+  end
+
+  def angular
+    @angular_portfolio_items = Work.angular
   end
 
   def new
