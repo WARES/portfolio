@@ -11,6 +11,7 @@ class WorksController < ApplicationController
 
   def new
     @works_item = Work.new
+    3.times {@works_item.technologies.build}
   end
 
 
@@ -41,7 +42,7 @@ class WorksController < ApplicationController
   def update
     respond_to do |format|
       if @works_item.update(work_params)
-        format.html { redirect_to @works_item, notice: 'Work Item was successfully updated.' }
+        format.html { redirect_to works_url, notice: 'Work Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @works_item}
       else
         format.html { render :edit }
@@ -53,11 +54,11 @@ class WorksController < ApplicationController
   def show
   end
 
-private
+  private
 
-def work_params
-  self.params.require(:work).permit(:title, :subtitle, :body)
-end
+  def work_params
+    self.params.require(:work).permit(:title, :subtitle, :body, technologies_attributes: [:name])
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_work
