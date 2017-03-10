@@ -57,7 +57,11 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    self.params.require(:work).permit(:title, :subtitle, :body, technologies_attributes: [:name])
+    self.params.require(:work).permit(:title,
+                                      :subtitle,
+                                      :body,
+                                      technologies_attributes: [:name]
+                                    )
   end
 
   # Use callbacks to share common setup or constraints between actions.
