@@ -3,3 +3,7 @@
   <p><%=  @works_item.body %></p>
   <%= image_tag @works_item.main_image if !@works_item.main_image.nil? %>
   <%= link_to "Edit", edit_work_path(@works_item.id) %>
+<h2>Technologies Used: <h2>
+  <% @works_item.technologies.each do |t| %>
+  <p><%= t.name %></p>
+  <% end %>
