@@ -36,6 +36,7 @@ class WorksController < ApplicationController
   end
 
   def edit
+      3.times {@works_item.technologies.build}
   end
 
   # PATCH/PUT /works/1
