@@ -4,6 +4,7 @@ class WorksController < ApplicationController
 
   def index
     @works_item = Work.all # create a scope ->ruby_on_rails_work_items  #where(subtitle: "Angular JS")
+    @page_title = "My portfolio Item"
   end
 
   def angular
