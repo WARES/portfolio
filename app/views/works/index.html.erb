@@ -1,5 +1,5 @@
 <h1>Portfolio Items</h1>
 <%= link_to 'Angular Posts', angular_show_path %>
-<%= link_to "Create New Item", new_work_path %>
+<%= link_to "Create New Item", new_work_path if logged_in?(:site_admin) %>
 
 <%= render partial: 'work_item', collection: @works_item %>

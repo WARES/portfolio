@@ -7,9 +7,9 @@
   <h3><%= work.subtitle %></h3>
   <p><%= work.body %></p>
   <%= image_tag work.thumb_image unless work.thumb_image.nil? %>
-    <%= link_to "Edit", edit_work_path(work.id) %>
+    <%= link_to "Edit", edit_work_path(work.id) if logged_in?(:site_admin)%>
     <%= link_to "Show", portfolio_show_path(work.id) %>
-    <%= link_to "Delete", work_path(work), method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to "Delete", work_path(work), method: :delete, data: {confirm: "Are you sure?"} if logged_in?(:site_admin)%>
 <% end %>
 
 <%= link_to "Create New Item", new_work_path %>
