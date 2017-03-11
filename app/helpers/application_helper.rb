@@ -13,13 +13,3 @@ module ApplicationHelper
     end
   end
 end
-
-  def sample_method
-    x = 2
-    if x == 1
-      "yay"
-    else
-      "no"
-      "something"
-    end
-  end
